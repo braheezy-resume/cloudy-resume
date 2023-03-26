@@ -2,8 +2,7 @@ name: ci
 on: [push]
 
 jobs:
-  run:
-    name: Spell  check
+  spellcheck:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,8 +13,14 @@ jobs:
         with:
           files: ./resume.md
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Install latest resumerk
-        run: >
+        run: |
           gh release download --repo braheezy-resume/resumerk --pattern '*linux*'
           tar xf *.tar.gz
 
