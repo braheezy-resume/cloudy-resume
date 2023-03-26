@@ -6,7 +6,7 @@ This was done in early 2022 and was a fairly straightforward study and exam sess
 # HTML
 - [x] The resume needs to be written in HTML.
 
-I prefer Markdown and most places still require that you submit a PDF. I wanted a system dependency free way to convert my Markdown file and found nothing. So the go program in this project does that.
+I prefer Markdown and most places still require that you submit a PDF. I wanted a system dependency free way to convert my Markdown file and found nothing. I wrote [resmark](https://github.com/braheezy-resume/resmark) to solve that.
 
 # CSS
 - [x] The resume needs to be styled with CSS.
@@ -14,15 +14,17 @@ I prefer Markdown and most places still require that you submit a PDF. I wanted 
 I took the CSS from [this guy's project](https://github.com/mikepqr/resume.md) and tweaked it a bit.
 
 # Static Website
-- [ ] The resume should be deployed online as an Amazon S3 static website.
+- [x] The resume should be deployed online as an Amazon S3 static website.
 
-Terraform
+See the Terraform
 # HTTPS
-- [ ] The S3 website URL should use HTTPS for security. Leverage Amazon CloudFront.
+- [x] The S3 website URL should use HTTPS for security. Leverage Amazon CloudFront.
 
+See the Terraform
 # DNS
-- [ ] Point a custom DNS domain name to the CloudFront distribution, so the resume can be accessed at something like my-c00l-resume-website.com. Leverage Amazon Route 53.
+- [x] Point a custom DNS domain name to the CloudFront distribution, so the resume can be accessed at something like my-c00l-resume-website.com. Leverage Amazon Route 53.
 
+See the Terraform
 # Javascript
 - [ ] The resume webpage should include a visitor counter that displays how many people have accessed the site. This will need to write a bit of Javascript to make this happen.
 
@@ -39,8 +41,9 @@ Terraform
 - [ ] Include some tests for the Go code.
 
 # Infrastructure as Code
-- [ ] Do not configure resources (DynamoDB table, API Gateway, Lambda function, etc.), by clicking around in the AWS console. Use Terraform
+- [x] Do not configure resources (DynamoDB table, API Gateway, Lambda function, etc.), by clicking around in the AWS console. Use Terraform
 
+See the Terraform
 # Source Control
 - [x] Create a GitHub repository for your backend code.
 
