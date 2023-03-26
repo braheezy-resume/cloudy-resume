@@ -14,6 +14,7 @@ jobs:
           files: ./resume.md
 
   build:
+    needs: spellcheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,6 +24,8 @@ jobs:
         run: |
           gh release download --repo braheezy-resume/resumerk --pattern '*linux*'
           tar xf *.tar.gz
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Convert resume
         run: ./resumerk resume.md
