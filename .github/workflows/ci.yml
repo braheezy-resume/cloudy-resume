@@ -13,3 +13,19 @@ jobs:
         uses: crate-ci/typos@v1.13.26
         with:
           files: ./resume.md
+
+      - name: Install latest resumerk
+        run: >
+          gh release download --repo braheezy-resume/resumerk --pattern '*linux*'
+          tar xf *.tar.gz
+
+      - name: Convert resume
+        run: ./resumerk resume.md
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: resume_files
+          path: |
+            resume.html
+            resume.pdf
+            resume.md
