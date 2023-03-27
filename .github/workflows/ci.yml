@@ -52,10 +52,11 @@ jobs:
           name: resume_files
 
       - name: Deploy all artifacts to Github
-        uses: softprops/action-gh-release@v1
+        uses: johnwbyrd/update-release@v1
         with:
-          tag_name: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: resume.*
+          tag: latest
 
       - name: Deploy HTML to S3
         run: aws s3 sync . s3://${{ secrets.AWS_BUCKET }} --exclude='*' --include='resume.html'
