@@ -58,10 +58,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Determine relase tag
+        id: set_tag
+        run: echo "sha_short=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
+
       - name: Deploy all artifacts to Github
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${GITHUB_SHA::6}
+          tag_name: ${{ steps.set_tag.outputs.sha_short }}
           files: resume.*
 
       - name: Deploy HTML to S3
