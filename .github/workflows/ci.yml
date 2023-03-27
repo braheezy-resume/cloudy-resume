@@ -51,12 +51,16 @@ jobs:
         with:
           name: resume_files
 
+      - name: Delete old release
+        run: |
+          LAST_RELEASE_TAG=$(gh release list --limit 1 | awk '{print $3}')
+          gh release delete $LAST_RELEASE_TAG --cleanup-tag --yes
+
       - name: Deploy all artifacts to Github
-        uses: johnwbyrd/update-release@v1
+        uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${GITHUB_SHA::6}
           files: resume.*
-          tag: latest
 
       - name: Deploy HTML to S3
         run: aws s3 sync . s3://${{ secrets.AWS_BUCKET }} --exclude='*' --include='resume.html'
