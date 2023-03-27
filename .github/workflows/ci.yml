@@ -61,7 +61,7 @@ jobs:
 
       - name: Determine relase tag
         id: set_tag
-        run: echo "sha_short=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
+        run: echo "sha_short=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
 
       - name: Deploy all artifacts to Github
         uses: softprops/action-gh-release@v1
