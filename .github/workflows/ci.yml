@@ -54,6 +54,7 @@ jobs:
       - name: Deploy all artifacts to Github
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: latest
           files: resume.*
 
       - name: Deploy HTML to S3
