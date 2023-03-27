@@ -7,7 +7,7 @@
 
 ## Skills
 - **Languages:** Python, PowerShell, Bash, JavaScript, Go, C, Solidity, Markup languages, Matlab
-- **Tools and Frameworks**: Ansible, Packer, Vagrant, VirtualBox, QEMU/KVM, K8s, VMWare, Artifactory, GitLab, Docker/Podman, Git, Terraform, Node.js, React, Flask, Tkinter, unittest, REST API, MongoDB, Web3, Truffle, Ethereum, Ganache, IPFS
+- **Tools and Frameworks**: Ansible, Packer, Vagrant, VirtualBox, QEMU/KVM, AWS, K8s, VMWare, Artifactory, GitLab, Docker/Podman, Git, Terraform, Node.js, React, Flask, Tkinter, unittest, REST API, MongoDB, Web3, Truffle, Ethereum, Ganache, IPFS
 
 ## Certifications
 AWS Certified Cloud Practitioner
