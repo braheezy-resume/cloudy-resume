@@ -52,6 +52,7 @@ jobs:
           name: resume_files
 
       - name: Delete old release
+        continue-on-error: true
         run: |
           LAST_RELEASE_TAG=$(gh release list --repo $GITHUB_REPOSITORY --limit 1 | awk '{print $3}')
           gh release delete $LAST_RELEASE_TAG --cleanup-tag --yes --repo $GITHUB_REPOSITORY
