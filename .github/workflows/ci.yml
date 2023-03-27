@@ -67,6 +67,11 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.set_tag.outputs.sha_short }}
+          name: current
+          body: |
+            The current resume assets are below.
+
+            This release and tag was auto-generated.
           files: resume.*
 
       - name: Deploy HTML to S3
