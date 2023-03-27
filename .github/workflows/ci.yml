@@ -55,6 +55,8 @@ jobs:
         run: |
           LAST_RELEASE_TAG=$(gh release list --limit 1 | awk '{print $3}')
           gh release delete $LAST_RELEASE_TAG --cleanup-tag --yes
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Deploy all artifacts to Github
         uses: softprops/action-gh-release@v1
