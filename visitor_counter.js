@@ -5,7 +5,7 @@ if (!cookies) {
     //TODO: Call AWS to update count
 }
 
-const API_URL = ""
+const API_URL = "{URL}"
 
 async function getCount() {
     const response = await fetch(API_URL)

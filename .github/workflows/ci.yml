@@ -29,13 +29,14 @@ jobs:
 
       - name: Figure out API URL
         id: get_api_url
-        run: echo "api_url=$(aws apigatewayv2 get-apis | jq '.Items[0].ApiEndpoint')"  >> $GITHUB_OUTPUT
+        run: echo "api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')"  >> $GITHUB_OUTPUT
 
       - name: Convert resume
         env:
           API_URL: ${{ steps.get_api_url.outputs.api_url }}
         run: |
-          sed -i "s/\"\"/${API_URL//\//\\/}/g" visitor_counter.js
+          echo $API_URL
+          sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
           ./resumerk resume.md
 
       - uses: actions/upload-artifact@v3
