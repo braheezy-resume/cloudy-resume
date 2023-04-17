@@ -29,9 +29,7 @@ jobs:
 
       - name: Figure out API URL
         id: get_api_url
-        run: |
-          api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')
-          echo "$api_url"  >> $GITHUB_OUTPUT
+        run: echo "api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')"  >> $GITHUB_OUTPUT
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
