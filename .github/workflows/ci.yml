@@ -45,6 +45,7 @@ jobs:
             resume.html
             resume.pdf
             resume.md
+            visitor_counter.js
 
   deploy:
     if: github.ref == 'refs/heads/main'
