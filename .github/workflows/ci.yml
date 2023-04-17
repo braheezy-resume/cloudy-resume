@@ -30,12 +30,15 @@ jobs:
       - name: Figure out API URL
         id: get_api_url
         run: echo "api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')"  >> $GITHUB_OUTPUT
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Convert resume
         env:
           API_URL: ${{ steps.get_api_url.outputs.api_url }}
         run: |
-          echo "$API_URL"
+          echo "API URL is: $API_URL"
           sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
           ./resumerk resume.md
 
