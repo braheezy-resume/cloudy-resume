@@ -32,8 +32,6 @@ jobs:
         run: |
           api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')
           echo "$api_url"  >> $GITHUB_OUTPUT
-          res=$(aws apigatewayv2 get-apis)
-          echo "aws result is: $res"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
