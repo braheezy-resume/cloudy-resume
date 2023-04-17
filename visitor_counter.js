@@ -1,12 +1,18 @@
 const cookies = document.cookie
-if (cookies) {
-    console.log("There are cookies!", cookies)
-} else {
+if (!cookies) {
     console.log("No cookies :(", cookies)
     document.cookie = "visited=yes; SameSite=lax"
+    //TODO: Call AWS to update count
 }
 
-const visitor_count = 1
+const API_URL = ""
+
+async function getCount() {
+    const response = await fetch(API_URL)
+    return JSON.parse(response)
+}
+
+const visitor_count = await getCount()
 
 const visitorCounterView = `
 Visitor Counter: <span class="count">${visitor_count}</span>
