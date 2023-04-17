@@ -35,7 +35,7 @@ jobs:
         env:
           API_URL: ${{ steps.get_api_url.outputs.api_url }}
         run: |
-          echo $API_URL
+          echo "$API_URL"
           sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
           ./resumerk resume.md
 
