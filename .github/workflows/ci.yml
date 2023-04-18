@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "API URL is: $API_URL"
           sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
-          ./resumerk resume.md -jsFile resume.js -cssFile resume.css
+          ./resumerk resume.md -jsFile visitor_counter.js -cssFile resume.css
 
       - uses: actions/upload-artifact@v3
         with:
