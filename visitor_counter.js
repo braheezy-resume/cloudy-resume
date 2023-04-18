@@ -1,23 +1,44 @@
+// {URL} gets replaced during "build time" by a sed command.
+const API_URL = "{URL}/count"
+
+// If the user does not have any cookies from us, they are a new visitor.
 const cookies = document.cookie
 if (!cookies) {
-    console.log("No cookies :(", cookies)
     document.cookie = "visited=yes; SameSite=lax"
-    //TODO: Call AWS to update count
+    // PUT request to our API updates the count by 1
+    const update = (async () => {
+        const response = await fetch(API_URL, {
+            method: "PUT"
+        })
+        if (!response.ok) {
+            throw new Error("network failed")
+        }
+        result = await response.json()
+    })
+    update()
 }
-
-const API_URL = "{URL}"
 
 async function getCount() {
-    const response = await fetch(API_URL)
-    return JSON.parse(response)
+    try {
+        const response = await fetch(API_URL)
+        if (!response.ok) {
+            throw new Error("network failed")
+        }
+        result = await response.json()
+    } catch (error) {
+        console.error(error)
+        result = { "count": "N/A" }
+    }
+    // We awaited for the final data, now render it
+    show(result)
 }
 
-const visitor_count = await getCount()
+function show(data) {
 
-const visitorCounterView = `
-Visitor Counter: <span class="count">${visitor_count}</span>
+    const visitorCounterView = `
+Visitor Counter: <span class="count">${data.count}</span>
 `.trim()
-document.addEventListener('DOMContentLoaded', () => {
+
     const visitorView = document.createElement("div")
     visitorView.setAttribute("class", "count-text")
     visitorView.innerHTML = visitorCounterView
@@ -28,4 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     element = document.querySelector('#resume')
     element.appendChild(solidLine)
     element.appendChild(visitorView)
-}, false);
+}
+
+getCount()
