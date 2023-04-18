@@ -1,4 +1,4 @@
-// {URL} gets replaced during "build time" by a sed command.
+// The URL-template string below gets replaced during "build time" by a sed command.
 const API_URL = "{URL}/count"
 
 // If the user does not have any cookies from us, they are a new visitor.

@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "API URL is: $API_URL"
           sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
-          ./resumerk resume.md -jsFile visitor_counter.js -cssFile resume.css
+          ./resumerk -jsFile visitor_counter.js -cssFile resume.css resume.md
 
       - uses: actions/upload-artifact@v3
         with:
@@ -50,7 +50,6 @@ jobs:
             resume.html
             resume.pdf
             resume.md
-            visitor_counter.js
 
   deploy:
     if: github.ref == 'refs/heads/main'
