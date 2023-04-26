@@ -1,19 +1,6 @@
 # My Cloudy Resume
-My automated cloud-hosted approach to hosting my resume.
+My automated cloud-hosted approach to hosting my resume. Implemented this with some twists: https://cloudresumechallenge.dev/docs/the-challenge/aws/.
 
-Implementing this with some twists: https://cloudresumechallenge.dev/docs/the-challenge/aws/.
+At this point, I can casually make updates to my resume (and any supporting code), push the results to GitHub, and the website at https://resume.braheezy.net will be updated 👍
 
-See [this for more on the cloud challenge](./cloudResumeChallenge.md)
-
-## Approach
-1. `braheezy-resume` holds the repos for this effort
-    - `frontend`: Where the resume is stored
-    - `backend`: Backend code supporting API calls
-    - `terraform`: Terraform to deploy front and backend
-    - `resmark`: Tool to convert resume formats
-
-2. Run GitHub action:
-    - Spellcheck resume i.e. lint
-    - Convert PDF and HTML outputs i.e. build
-    - Deploy PDF to S3 bucket that only I can access
-    - Deploy HTML to S3 bucket hosting static website
+If you want to learn more about this journey and my approach, see [my blog post here](DEADLINK)
