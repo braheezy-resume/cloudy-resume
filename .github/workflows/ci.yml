@@ -27,21 +27,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Figure out API URL
-        id: get_api_url
-        run: echo "api_url=$(aws apigatewayv2 get-apis | jq -r '.Items[0].ApiEndpoint')"  >> $GITHUB_OUTPUT
+      - name: Convert resume
+        run: ./build.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-west-1'
-
-      - name: Convert resume
-        env:
-          API_URL: ${{ steps.get_api_url.outputs.api_url }}
-        run: |
-          echo "API URL is: $API_URL"
-          sed -i "s/{URL}/${API_URL//\//\\/}/g" visitor_counter.js
-          ./resumerk -jsFile visitor_counter.js -cssFile resume.css resume.md
 
       - uses: actions/upload-artifact@v3
         with:
