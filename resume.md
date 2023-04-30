@@ -1,7 +1,6 @@
 # Michael Braha
 
 - <michael.c.braha@gmail.com>
-- (754) 368-2276
 - [github.com/braheezy](https://github.com/braheezy)
 - San Diego, CA
 
