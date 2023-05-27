@@ -36,12 +36,11 @@ Responsible for the development of technical changes to the MQ-9 Organizational 
 ### [Home Inventory](https://github.com/braheezy/home-inventory-py-env)
 Full-stack web application that allows users to store information regarding rooms, items, and their monetary value. A Flask server hosts a REST API, a React client interacts with it, and data is persisted with MongoDB. A separate Terraform project fully deploys the application to AWS, including CI/CD to allow live developer editing of the project.
 
-### [ERC-20](https://github.com/braheezy/MyERC20)
-A native implementation of ERC-20 by following Ethereum Improvement Proposal (EIP) 20. A TDD-built React web client was
-created to interact with the contract and prove it works.
+### [Cloudy Resume](https://braheezy.github.io/posts/2023-05-24-my-cloudy-resume/)
+The static website version of this resume that's hosted on AWS. Terraform manages cloud infrastructure and GitHub Actions perform CI/CD operations for supporting repositories. I wrote a Go program, [`resumerk`](https://github.com/braheezy-resume/resumerk), to convert Markdown to HTML and PDF.
 
-### [MicroblogPy](https://github.com/braheezy/MicroblogPy)
-A social media-like full-stack web application built using Python Flask, Bootstrap, and SQLAlchemy. Supports live language translations via Azure API, site wide search via Elasticsearch, background asking scheduling via Redis, a REST API, and robust email support.
+### [Violet](https://github.com/braheezy/violet)
+A TUI allowing users to see and perform basic operations on installed Vagrant virtual machines. Implemented as a Go wrapper around the Vagrant binary.
 
 ## Education
 ### <span>University of Florida</span> <span>2010 – 2015</span>
