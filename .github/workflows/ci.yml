@@ -81,10 +81,11 @@ jobs:
             This release and tag was auto-generated.
           files: resume.*
 
-      - name: Deploy HTML to S3
+      - name: Deploy website assets to S3
         # Upload single file to s3 and compare on file size only.
         # The timestamp always changes and makes `sync` copy every time.
-        run: aws s3 sync . s3://${{ secrets.AWS_BUCKET }} --exclude='*' --include='resume.html' --size-only
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_BUCKET }} --exclude='*' --include='resume.html' --include='favicon.ico' --size-only
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
